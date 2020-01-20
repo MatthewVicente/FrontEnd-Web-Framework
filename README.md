@@ -1,7 +1,7 @@
 # FrontEnd-Web-Framework
 Frontend Web Framework created to help in the frontend development process
 
-DEV
+<h1>DEV</h1>
 
 Install:
 	nom install
