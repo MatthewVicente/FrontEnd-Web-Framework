@@ -2,13 +2,18 @@
   "users": [
     {
       "id": 1,
-      "name": "NEW NAME",
-      "age": 50
+      "name": "Bazinga",
+      "age": 22
     },
     {
-      "name": "new record",
-      "age": 0,
-      "id": 2
+      "id": 2,
+      "name": "Bogus",
+      "age": 22
+    },
+    {
+      "name": "Baduh",
+      "age": 22,
+      "id": 3
     }
   ]
 }
