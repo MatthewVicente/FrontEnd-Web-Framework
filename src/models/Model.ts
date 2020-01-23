@@ -20,6 +20,7 @@ interface HasId {
 	id?: number;
 }
 
+// Generic structure to define different types of data
 export class Model<T extends HasId> {
 	constructor(
 		private attributes: ModelAttributes<T>,
@@ -31,11 +32,13 @@ export class Model<T extends HasId> {
 	trigger = this.events.trigger;
 	get = this.attributes.get;
 
+	// Set a new value to the record
 	set(update: T): void {
 		this.attributes.set(update);
 		this.events.trigger('change');
 	}
 
+	// Fetch record by using its id
 	fetch(): void {
 		const id = this.attributes.get('id');
 
@@ -50,6 +53,7 @@ export class Model<T extends HasId> {
 		);
 	}
 
+	// Save changes to JSON server
 	save(): void {
 		this.sync.save(this.attributes.getAll())
 		.then((reponse: AxiosResponse): void => {

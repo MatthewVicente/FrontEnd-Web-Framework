@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Eventing } from './Eventing';
 
+// Generic structure to define a collection from different types of data
 export class Collection<T, K> {
 	models: T[] = [];
 	events: Eventing = new Eventing();
@@ -18,6 +19,7 @@ export class Collection<T, K> {
 		return this.events.trigger;
 	}
 
+	// Generate a new collection from T type
 	fetch(): void {
 		axios.get(this.rootUrl)
 			.then((response: AxiosResponse) => {

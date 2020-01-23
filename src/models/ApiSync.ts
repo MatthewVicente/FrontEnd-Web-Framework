@@ -7,10 +7,12 @@ interface HasId {
 export class ApiSync<T extends HasId> {
 	constructor(public rootUrl: string) {}
 
+	// Fetch record by using its id
 	fetch(id: number): AxiosPromise {
 		return axios.get(`${this.rootUrl}/${id}`);
 	}
 
+	// Save changes to JSON server
 	save(data: T): AxiosPromise {
 		const { id } = data;
 
