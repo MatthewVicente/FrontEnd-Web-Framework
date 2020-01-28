@@ -1,12 +1,20 @@
 import { Model } from "../models/Model";
 
 export abstract class View<T extends Model<K>, K> {
+	regions: { [key: string]: Element } = {};
+
 	constructor(public parent: Element, public model: T) {
 		this.bindModel();
 	}
 
+	regionsMap(): { [key: string]: string } {
+		return {};
+	}
+
 	// Map events that will be binded to HTML using the structure event_name:element
-	abstract eventsMap(): { [key:string]: () => void };
+	eventsMap(): { [key:string]: () => void } {
+		return {};
+	};
 
 	// Generate html that will be renderer
 	abstract template(): string;
@@ -31,6 +39,19 @@ export abstract class View<T extends Model<K>, K> {
 
 	}
 
+	mapRegions(fragment: DocumentFragment): void {
+		const regionsMap = this.regionsMap();
+
+		for (let key in regionsMap) {
+			const selector = regionsMap[key];
+			const element = fragment.querySelector(selector);
+
+			if (element) {
+				this.regions[key] = element;
+			}
+		}
+	}
+
 	// Render template and run bindEvents()
 	render(): void {
 		this.parent.innerHTML = '';
@@ -39,6 +60,7 @@ export abstract class View<T extends Model<K>, K> {
 		templateElement.innerHTML = this.template();
 
 		this.bindEvents(templateElement.content);
+		this.mapRegions(templateElement.content);
 
 		this.parent.append(templateElement.content);
 	}
