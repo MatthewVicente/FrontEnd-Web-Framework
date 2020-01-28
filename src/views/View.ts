@@ -1,10 +1,8 @@
-import { User } from '../models/User';
+import { Model } from "../models/Model";
 
-export abstract class View {
-	constructor(public parent: Element, public model: User) {
-		this.model.on('change', () => {
-			this.bindModel();
-		});
+export abstract class View<T extends Model<K>, K> {
+	constructor(public parent: Element, public model: T) {
+		this.bindModel();
 	}
 
 	// Map events that will be binded to HTML using the structure event_name:element
