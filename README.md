@@ -1,5 +1,7 @@
 # FrontEnd-Web-Framework
-Frontend Web Framework created to help in the frontend development process
+Frontend Web Framework created to help in the frontend development process.
+
+This application was created with the help from Stephen Grider's classes on: https://www.udemy.com/course/typescript-the-complete-developers-guide/
 
 <h2>DEV</h2>
 
