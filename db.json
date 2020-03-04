@@ -8,12 +8,22 @@
     {
       "id": 2,
       "name": "Bogus",
-      "age": 22
+      "age": 25
     },
     {
       "name": "Baduh",
-      "age": 22,
+      "age": 30,
       "id": 3
+    },
+    {
+      "name": "Locki",
+      "age": 68,
+      "id": 4
+    },
+    {
+      "name": "Locki",
+      "age": 17,
+      "id": 5
     }
   ]
 }
